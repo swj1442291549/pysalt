@@ -201,7 +201,7 @@ def rectify(hdu, soldict, caltype='line', function='poly', order=3, inttype='int
             if set_nw:
                 nw = len(xarr)
             if set_dw:
-                dw = float(w2 - w1) / nw
+                dw = float(w2 - w1) / (nw - 1)
             nw_arr = createoutputxaxis(w1, w2, nw)
 
             # setup the VARIANCE and BPM frames
@@ -603,13 +603,13 @@ def entersolution(solfiles):
     if isinstance(solfiles, str):
         solfile = solfiles
         if solfile[-4:] == 'fits':
-            print 'Not supported yet'
+            print('Not supported yet')
         else:
             soldict = readsolascii(solfile, soldict)
     else:
         for solfile in solfiles:
             if solfile[-4:] == 'fits':
-                print 'Not supported yet'
+                print('Not supported yet')
             else:
                 soldict = readsolascii(solfile, soldict)
 
