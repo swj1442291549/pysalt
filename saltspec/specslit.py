@@ -27,24 +27,20 @@ LIMITATIONS
 2. Sampling of the spectrum is rough, therefore the spline fitting is not
 very accurate
 """
-
 from __future__ import with_statement
 
 import os
 import sys
+
 import numpy as np
-
-from astropy.io import fits
-
-from pyraf import iraf
-
+import mostools as mt
 import saltsafeio as saltio
 import saltsafekey as saltkey
-from saltsafelog import logging
 
-import mostools as mt
+from pyraf import iraf
 from spectools import SALTSpecError
-
+from saltsafelog import logging
+from astropy.io import fits
 
 debug = True
 

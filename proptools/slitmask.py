@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*
-
-import numpy as np
-import pywcs
-from slitlets import Slitlets
-from xml.dom import minidom, getDOMImplementation
 import xml.parsers.expat
 
-from PyQt4.QtCore import Qt, QVariant, QObject, SIGNAL, QAbstractTableModel, QModelIndex
+from xml.dom import getDOMImplementation, minidom
+
+import pywcs
+import numpy as np
+
+from slitlets import Slitlets
+from PyQt4.QtCore import (QAbstractTableModel, QModelIndex, QObject, Qt,
+                          QVariant, SIGNAL)
+
 
 class SlitMaskError(Exception):
     """Base class for exceptions from the slitmaks class"""
@@ -588,4 +591,3 @@ class SlitMask(QObject):
 
 if __name__=='__main__':
     import sys
-   

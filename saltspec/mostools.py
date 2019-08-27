@@ -23,26 +23,25 @@ LIMITATIONS
 1. Need to add checking that the edges correspond
 
 """
-
-from astropy.io import fits 
-from astropy.io.fits import Column
-
-import pywcs
-
 import math
-import numpy
-import matplotlib.pyplot as pl
-from matplotlib.ticker import NullFormatter
-import scipy.ndimage.filters
-import scipy.interpolate as si
-import scipy.signal
-from spectools import SALTSpecError
-import saltimagetools
+
 from xml.dom import minidom
 
+import numpy
+import pywcs
+import saltimagetools
+import matplotlib.pyplot as pl
+import scipy.signal
+import scipy.interpolate as si
+import scipy.ndimage.filters
+
 from slitmask import SlitMask
+from spectools import SALTSpecError
+from matplotlib.ticker import NullFormatter
 
 from astropy import modeling as mod
+from astropy.io import fits
+from astropy.io.fits import Column
 
 nullfmt = NullFormatter()
 
