@@ -1,7 +1,8 @@
+from xml.dom.minidom import Document
 
 import numpy as np
 import numpy.lib.recfunctions as rfn
-from xml.dom.minidom import Document
+
 
 class SlitError(Exception):
     """Base class for exceptions from the slitlet class"""
@@ -218,6 +219,7 @@ class Slitlets:
         slitlist = []
         for i in slits_dict.keys():
             tmp = [slits_dict[i][map[j]] for j in slitdnames]
+            tmp = tuple(tmp)
             slitlist.append(tmp)
 
         slits_arr = np.rec.array(slitlist,slitdtype)
@@ -236,8 +238,8 @@ class Slitlets:
         refstarlist = []
         for i in refstars_dict.keys():
             tmp = [refstars_dict[i][map[j]] for j in refstardnames]
+            tmp = tuple(tmp)
             refstarlist.append(tmp)
-
         refstars_arr = np.rec.array(refstarlist,refstardtype)
         mnames=[]
         mtypes=[]
@@ -252,7 +254,6 @@ class Slitlets:
                  fill_value=0, usemask=False)
         refstars_arr['priority'] = -1
         refstars_arr['refstar_flag'] = 1
-
         
         object_arr = self.add_arrays(slits_arr, refstars_arr)
         #set objects that are preselected to be in the mask
@@ -410,6 +411,7 @@ def dec_read(x):
 
 if __name__=='__main__':
    import sys
+
    s=Slitlets()
    s.readascii(sys.argv[1], form='short')
    print s.data[s.data['inmask_flag']==1]
