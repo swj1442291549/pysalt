@@ -38,25 +38,22 @@ import os
 import sys
 import math
 import time
+
 import numpy as np
+import mostools as mt
+import spectools as st
+import WavelengthSolution
+import saltsafeio as saltio
+import saltsafekey as saltkey
 
 from pyraf import iraf
-import saltsafekey as saltkey
-import saltsafeio as saltio
-from saltsafelog import logging
 from salterror import SaltError, SaltIOError
-import WavelengthSolution
-
-
-from PySpectrograph.Models import RSSModel
-
-import spectools as st
-import mostools as mt
-from specrectify import readsolascii, findlinesol, enterdatetime
-
 from spectools import SALTSpecError
-from InterIdentify import InterIdentify
+from saltsafelog import logging
+from specrectify import enterdatetime, findlinesol, readsolascii
 from AutoIdentify import AutoIdentify
+from InterIdentify import InterIdentify
+from PySpectrograph.Models import RSSModel
 
 debug = True
 
@@ -121,7 +118,7 @@ def specidentify(images, linelist, outfile, guesstype='rss', guessfile='',
                         ypos = 0.0117
                         objid = None
                     elif masktype == 'MOS':
-                        slit = 1.5
+                        slit = 1.
                         #slit=saltkey.get('SLIT', hdu[i])
 
                         # set up the x and y positions
